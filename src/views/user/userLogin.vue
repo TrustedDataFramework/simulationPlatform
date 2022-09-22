@@ -11,8 +11,8 @@
 					<div class="formTitle">
 						<div class="logo"></div>
 						<div class="ftitle">
-							<h3>仿真</h3>
-							<p>-区块链虚拟仿真学习平台</p>
+							<h3>{{$t('login_title_1')}}</h3>
+							<p>-{{$t('login_title_2')}}</p>
 						</div>
 					</div>
 
@@ -23,25 +23,25 @@
 
 						</div>
 						<div class="transModal">
-							<p class="pcel" v-for="(item,index) in modelList" :key='item.type' @click.stop="choModel(item)">{{item.text}}</p>
+							<p class="pcel" v-for="(item) in modelList" :key='item.type' @click.stop="choModel(item)">{{item.text}}</p>
 						</div>
 					</div>
 
 					<div class="din din-zh " :class="{'din-tea-zh':loginType==2}">
 
 						<span class="lab"></span>
-						<input type="text" placeholder="账号" v-model="account"/>
+						<input type="text" :placeholder="$t('account')" v-model="account"/>
 					</div>
 					<div class="din din-mm" >
 						<span class="lab"></span>
-						<input type="password" placeholder="密码" v-model="password"/>
+						<input type="password" :placeholder="$t('password')" v-model="password"/>
 					</div>
 					<div class="btnbox">
-					   <button @click="login">登陆</button>
+					   <button @click="login">{{$t('login')}}</button>
 					</div>
 
 					<p class="fun">
-						<a @click="linkFrontLogin">切换至{{loginType==1?'教师登陆':'学生登录'}}</a>
+						<a @click="linkFrontLogin">{{$t('switch_to')}}{{loginType==1?$t('teacher_login'):$t('student_login')}}</a>
 					</p>
 
 				</div>
@@ -64,19 +64,19 @@
 		data(){
 			return{
 
-			  model:'选择模式',
+			    model:this.$t("select_mode"),
 				showmodelList:false,
-				modelList:[{type:1,text:'单人模式'},{type:2,text:'多人模式'}],
-        modalType:0,//登陆模式
+				modelList:[{type:1,text:this.$t('single_mode')},{type:2,text:this.$t('multiplayer_mode')}],
+				modalType:0,//login mode
 				account:'',
 				password:'',
 				modal1: false,
 				modalTitle:'',
 				modalMess:'',
 				jwt:'',
-				loginType:1,//1表示学生登录  2表示教师登陆
+				loginType:1,//1 student login  2 teacher login
 				
-				ispreview:false//是否老师预览
+				ispreview:false//Whether the teacher previews
 			}
 		},
 
