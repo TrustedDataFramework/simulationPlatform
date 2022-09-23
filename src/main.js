@@ -9,6 +9,7 @@ import 'view-design/dist/styles/iview.css'
 
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css'
+import locale from 'element-ui/lib/locale/lang/en'
 import store from './store/store'
 import $ from 'jquery'
 import i18n from '@/utils/language.js'
@@ -23,17 +24,20 @@ Vue.config.productionTip = false
 
 Vue.use(toastRegistry)
 Vue.use(ViewUI)
-Vue.use(ElementUI)
+Vue.use(ElementUI,{
+	i18n:(key,value) => {
+		return i18n.t(key,value)
+	}
+})
 
 import router from './router'
- //字体样式
 
-// 全局路由导航拦截
+/* // Global route interception
 router.beforeEach((to, from, next) => {	  
-  if (to.path === '/login') { // 如果是登录页面路径，就直接next()
+  if (to.path === '/login') { // Jump directly to the login page
     next()
   } else { 
-  	// 其他页面路径
+  	// other page paths
 	  if(to.meta.direction==0){
 	   	 let userId = sessionStorage.getItem('user_id') 
 		   if (userId == null || userId == '') { 
@@ -52,14 +56,12 @@ router.beforeEach((to, from, next) => {
 
 	  }
   }
-})
+}) */
 
 
-// 路由独享导航拦截
+// Routing exclusive navigation interception
 beforeEnter: (to, from, next) => {
-  // 判断用户是否登录
-  
-  console.log('to2'+to)
+  // Determine if the user is logged
   if(to.meta.direction==0){  
 	  let userId = sessionStorage.getItem('user_id')
 	  if (userId == null || userId == '') {
@@ -80,6 +82,7 @@ beforeEnter: (to, from, next) => {
 	
   }
 }
+
 
 
 /* eslint-disable no-new */

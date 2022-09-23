@@ -20,7 +20,7 @@ export default new Router({
       }
     },
     {
-    	path: '/index',//数据统计
+    	path: '/index',//data statistics
       name: 'index',
       component: () =>import('@/views/index/index'),
       meta:{

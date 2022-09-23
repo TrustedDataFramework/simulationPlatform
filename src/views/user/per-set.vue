@@ -4,17 +4,17 @@
 	  <div class="mainbox">
     		<div class="mmain mmain-set">
     			 <div class="left-nav">
-    			 	 <div class="title">个人设置页面</div>
+    			 	 <div class="title">{{$t('personal_set_title')}}</div>
     			 	 <div class="ava">
     			 	   <div class="avabox"><img src="../../assets/img/ava.png"/></div>
-    			 	   <p class="prole">管理员</p>
+    			 	   <p class="prole">{{$t('administrator')}}</p>
     			 	  
     			 	 </div>
     			 	  <ul class="nav-ul">
-    			 	   	 <li class="active" @click="linkrouter('changePaw')"><span>修改密码</span></li>
-    			 	   	 <li @click="linkrouter('function')"><span>其他功能</span></li>
-    			 	   	 <li @click="linkrouter('function')"><span>其他功能</span></li> 
-    			 	   	 <li @click="linkrouter('function')"><span>其他功能</span></li> 
+    			 	   	 <li class="active" @click="linkrouter('changePaw')"><span>{{$t('change_Password')}}</span></li>
+    			 	   	 <li @click="linkrouter('function')"><span>{{$t('Other_functions')}}</span></li>
+    			 	   	 <li @click="linkrouter('function')"><span>{{$t('Other_functions')}}</span></li> 
+    			 	   	 <li @click="linkrouter('function')"><span>{{$t('Other_functions')}}</span></li> 
     			 	   </ul>
     			 	   
     			 </div>

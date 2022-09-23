@@ -8,7 +8,7 @@
 export default {
   name: 'App',
   
-  // 父组件中返回要传给下级的数据，来实现点同一路由刷新
+  // The parent component returns the data to be passed to the subordinate ro achieve the same route refresh
   provide() {
     return {
       reload: this.reload
@@ -34,7 +34,7 @@ export default {
     if (sessionStorage.getItem("store") ) {
         this.$store.replaceState(Object.assign({}, this.$store.state,JSON.parse(sessionStorage.getItem("store"))))
     } 
-    //在页面刷新时将vuex里的信息保存到sessionStorage里
+    //Save the information in vuex to sessionstorage when the page is refreshed
     window.addEventListener("beforeunload",()=>{
         sessionStorage.setItem("store",JSON.stringify(this.$store.state))
     })

@@ -1,6 +1,6 @@
 <template>
 	<div class="rightMain">
-		<p>功能开发中</p>
+		<p>{{$t("development_tips")}}</p>
 	</div>
 </template>
 
